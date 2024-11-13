@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Form - Udemy Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <section id="main">
+        <!--The main section-->
+        <div class="container flex flex-col bg-white mx-auto py-6 rounded-lg items-centre px-6 space-y-0 md:space-y-0 md:flex-row md:w-full">
+            <!--The left section-->
+            <div class="flex flex-col px-6 py-2  mb-32 space-y-2 md:w-1/4 border border-slate-600 md:m-0 md:mr-32">
+                <h1 class="text-3xl text-center font-bold text-gray-800 mb-6 md:flex">Profile</h1>
+                <a href="#" class="hover:bg-gray-400">Public Profile</a>
+                <a href="#" class="hover:bg-gray-400">Photo</a>
+                <a href="#" class="hover:bg-gray-400">Account</a>
+                <a href="#" class="hover:bg-gray-400">Security</a>
+                <a href="#" class="hover:bg-gray-400">Subsriptions</a>
+                <a href="#" class="hover:bg-gray-400">Payments Methods</a>
+                <a href="#" class="hover:bg-gray-400">Privacy</a>
+                <a href="#" class="hover:bg-gray-400">Notifications</a>
+                <a href="#" class="hover:bg-gray-400">Api Clients</a>
+                <a href="#" class="hover:bg-gray-400">Close accounts</a>
+            </div>
+
+
+        <!--The right section-->
+
+            <div class="border border-slate-600 m-0 md:w-3/4 md:px-32 py-2">
+                <h1 class="text-3xl text-center font-semibold text-gray-800 mb-6">Edit Your Profile</h1>
+                <form action="/update-profile" method="POST" enctype="multipart/form-data">
+                    <!-- Profile Picture -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2" for="profile_pic">Profile Picture</label>
+                        <input type="file" name="profile_pic" id="profile_pic" class="w-full border border-gray-300 rounded py-2 px-3">
+                    </div>
+        
+                    <!-- Full Name -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2" for="full_name">Full Name</label>
+                        <input type="text" name="full_name" id="full_name" placeholder="Your Full Name" class="w-full border border-gray-300 rounded py-2 px-3">
+                    </div>
+        
+                    <!-- Bio -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2" for="bio">Bio</label>
+                        <textarea name="bio" id="bio" rows="4" placeholder="Write a brief biography" class="w-full border border-gray-300 rounded py-2 px-3"></textarea>
+                    </div>
+        
+                    <!-- Role Selection -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2">Role</label>
+                        <div class="flex items-center mb-2">
+                            <input type="radio" name="role" id="student" value="student" class="mr-2">
+                            <label for="student" class="text-gray-700">Student</label>
+                        </div>
+                        <div id="studentFields" class=" mb-6">
+
+                            <label class="block text-gray-700 font-semibold mb-2">Courses Enrolled</label>
+                            <select name="courses_registered[]" multiple class="w-full border border-gray-300 rounded py-2 px-3">
+                                <option value="course1">Course 1</option>
+                                <option value="course2">Course 2</option>
+                                <option value="course3">Course 3</option>
+                                <!-- Populate with actual course data -->
+                            </select>
+                            <p class="text-sm text-gray-500 mt-2">Hold down Ctrl (Windows) / Command (Mac) to select multiple courses.</p>
+                        </div>
+            
+
+                        <div class="flex items-center">
+                            <input type="radio" name="role" id="instructor" value="instructor" class="mr-2">
+                            <label for="instructor" class="text-gray-700">Instructor</label>
+                        </div>
+                        <div id="instructorFields" class=" mb-6">
+                            <!-- Expertise -->
+                            <label class="block text-gray-700 font-semibold mb-2" for="expertise">Area of Expertise</label>
+                            <input type="text" name="expertise" id="expertise" placeholder="E.g., Web Development, Data Science" class="w-full border border-gray-300 rounded py-2 px-3 mb-4">
+                            
+                            <!-- Courses Taught -->
+                            <label class="block text-gray-700 font-semibold mb-2">Courses Taught</label>
+                            <select name="courses_taught[]" multiple class="w-full border border-gray-300 rounded py-2 px-3">
+                                <option value="course1">Course 1</option>
+                                <option value="course2">Course 2</option>
+                                <option value="course3">Course 3</option>
+                                <!-- Populate with actual course data -->
+                            </select>
+                            <p class="text-sm text-gray-500 mt-2">Hold down Ctrl (Windows) / Command (Mac) to select multiple courses.</p>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Social Links</h3>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-semibold" for="linkedin">LinkedIn</label>
+                            <input type="url" name="linkedin" id="linkedin" placeholder="LinkedIn Profile URL" class="w-full border border-gray-300 rounded py-2 px-3">  
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-semibold" for="twitter">Twitter</label>
+                            <input type="url" name="twitter" id="twitter" placeholder="Twitter Profile URL" class="w-full border border-gray-300 rounded py-2 px-3">
+    
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-semibold" for="facebook">Facebook</label>
+                            <input type="url" name="facebook" id="facebook" placeholder="Facebook Profile URL" class="w-full border border-gray-300 rounded py-2 px-3">
+    
+                        </div>
+                        <div class="mb-4 w-24">
+                            <a href="#" class="flex mt-4 py-3 px-6 pt-2 mt-0 text-white bg-black hover:bg-gray-700">Save</a>
+                        </div>
+                    </div>
+            </div>                
+        </div>                    
+    </section>
+    <!--Call to action-->
+    <section id="cta" class="bg-black ">
+        <div class="container flex flex-col justify-between p-4 space-y-12 md:py-2 md:flex-row md:space-y-0 border-y-white">
+            <div class="flex flex-col my-2 mx-4 text-center text-white md:max-w-xl md:text-left">
+                <h2 class="text-4xl font-bold leading-tight md:text-3xl p-0">Teach the world online</h2>
+                <p class="py-2">Create an online video course, reach students across the globe, and earn money</p>
+            </div>
+            <div>
+                <a href="#" class="flex mt-4 py-3 px-6 pt-2 mt-0 text-white bg-black hover:bg-gray-700 border border-white">Teach on udemy</a>
+            </div>
+        </div>
+    </section>
+    <section id="footer" class="bg-black m-0 p-4"  >
+        <div class="container flex flex-col text-white justify-between text-2 p-2  space-y-12 md:w-full:py-2 md:flex-row md:space-y-0  ">
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl py-4 font-bold leading-tight md:text-1xl">Certifications by Issuer</h2>
+                <p>Amazon Web Services (AWS) Certifications</p>
+                <p>Six sigma Certifications</p>
+                <p>Microsoft Certifications</p>
+                <p>Cisco Certifications</p>
+                <p>Tableau Certifications</p>
+                <p>See all Certifications</p>
+            </div>
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Web Development</h2>
+                <p>Web development</p>
+                <p>JavaScripts</p>
+                <p>React JS</p>
+                <p>Angula</p>
+                <p>Java</p>
+            </div>
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">IT</h2>
+                <p>Amazon (AWS) Certifications</p>
+                <p>AWS Certified Cloud Practitioner</p>
+                <p>AZ-900:Microsoft Azure fundamental</p>
+                <p>AWS certified solutions Architect</p>
+                <p>Kubernates</p>
+            </div>
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Leadership</h2>
+                <p>Leadership</p>
+                <p>Manaagement skills</p>
+                <p>Personal Management</p>
+                <p>Project Manaagement</p>
+                <p>Emotional Intelligence</p>
+            </div>
+    </section>
+    <section class="bg-black m-0 p-4">
+        <div class="container flex flex-col text-white justify-between p-2 space-y-12 md:py-2 md:flex-row md:space-y-0 ">
+            <div class="flex flex-col mx-4 text-center p-4 md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Certifications by Skills</h2>
+                <p>Cybersecurity Certifications</p>
+                <p>Project Management Certifications</p>
+                <p>Cloud Certifications</p>
+                <p>Data Analysis</p>
+                <p>HR Manaagement</p>
+                <p>See all Certifications</p>
+            </div>
+             <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Data Science</h2>
+                <p>Data Science</p>
+                <p>Python</p>
+                <p>Machine learning</p>
+                <p>ChatGPT</p>
+                <p>Deep learning</p>
+            </div>
+             <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-xl py-4">Communication</h2>
+                <p>Communication Skills</p>
+                <p>Presentation Skills</p>
+                <p>Public Speaking</p>
+                <p>Writing</p>
+                <p>Powerpoint</p>
+            </div>
+             <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Business Analytics & Intelligence</h2>
+                <p>Microsoft Excel</p>
+                <p>SQL</p>
+                <p>Microsoft Power BIs</p>
+                <p>Data Analysis</p>
+                <p>Business Analysis</p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-black m-0 text-white p-4">
+        <div class="container flex flex-col justify-between p-2 space-y-12 md:py-2 md:flex-row md:space-y-0">
+             <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">About Us</h2>
+                <p>About us</p>
+                <p>Careers</p>
+                <p>Contact Us</p>
+                <p>Blog</p>
+                <p>Investors</p>
+             </div>
+            
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Discovery Udemy</h2>
+                <p>Get the App</p>
+                <p>Teach on Udemy</p>
+                <p>Price and Pricing</p>
+                <p>Helps and Support</p>
+            </div>
+                <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Udemy For Business</h2>
+                <p>Udemy Business<p>
+            </div>
+            <div class="flex flex-col mx-4 p-4 text-center md:text-left md:w-1/4">
+                <h2 class="text-1xl font-bold leading-tight md:text-1xl py-4">Legal and Accessibility</h2>
+                <p>Accessibility Statement</p>
+                <p>Privacy Policy</p>
+                <p>Sitemaps</p>
+                <p>Stamps</p>
+            </div>
+        </div>
+    </section>
+        <div class="flex flex-col text-white bg-black m-0 items-center justify-between p-4 space-y-12 w-full md:py-2 md:flex-row md:space-y-0">
+
+            <div class="flex my-2 mx-4 text-center p-4 md:text-left ">
+                <h2 class="text-4xl font-bold leading-tight md:text-3xl">Udemy</h2> 
+                <p class="p-2 mx-4">@2024 Udemy, Inc.</p>
+            </div>
+            <div class="md:text-left md:w-1/3 px-4">
+                <a href="#" class="pt-2 hover:underline-offset-auto ">Cookie Settings</a>
+            </div>
+            <div>
+                <p class="p-4 md:w-1/3">English</p>
+            </div>
+        </div>
+    
+</body>
+</html>, 
+
